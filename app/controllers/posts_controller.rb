@@ -1,9 +1,13 @@
 class PostsController < ApplicationController
-  before_action :is_owner?, only: [:edit, :update]
+  before_action :is_owner?, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
     @posts = Post.order("created_at DESC")
+  end
+
+  def show
+    @post = Post.find(params[:id])
   end
 
   def new
@@ -32,6 +36,13 @@ class PostsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to root_path
+  end
+
 
   private
 
