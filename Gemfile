@@ -11,7 +11,7 @@ gem 'pg'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
 gem 'carrierwave'
-
+gem 'simple_form'
 
 
 # Use Puma as the app server
