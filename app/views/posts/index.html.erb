@@ -1,6 +1,9 @@
 <h1>Welcome to index </h1>
-
+<div class="container">
 <% @posts.each do |post| %>
-  <p><%= post.photo %></p>
-  <p><%= post.description %></p>
+  <%= image_tag post.user.photo %>
+  <%= post.user.name %>
+  <%= image_tag post.photo, style: "width:200px" %>
+  <%= post.description %>
 <% end %>
+</div>
