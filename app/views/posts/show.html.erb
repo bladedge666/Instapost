@@ -1,8 +1,14 @@
-<%= image_tag @post.user.photo, style: "width:200px" %>
+<%= image_tag @post.user.photo %>
 <%= @post.user.name %>
-<%= image_tag @post.photo, style: "width:200px" %>
-<%= @post.description %>
+<%= image_tag @post.photo %>
+description: <%= @post.description %>
+
 <% if @post.user == current_user %>
   <%= link_to 'Edit Post', edit_post_path(@post) %>
   <%= link_to 'Delete Post', @post, method: :delete %>
+<% end %>
+
+<% @comments.each do |comment| %>
+Username: <%= comment.user.name %>
+Comment: <%= comment.text %> <br>
 <% end %>

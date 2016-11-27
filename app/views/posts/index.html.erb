@@ -9,6 +9,13 @@
     <%= link_to 'Delete Post', post, method: :delete %>
   <% end %>
   
+  <% post.comments.each do |comment| %>
+    <p><%= comment.user.name %> says - <%= comment.text %></p>
+    <% if comment.user == current_user %>
+      <%= link_to "Delete", post_comment_path(post_id: post.id, id: comment.id), method: :delete, class: "btn btn-danger" %>
+    <% end %>
+  <% end %>
+
   <% if user_signed_in? %>
     <%= simple_form_for Comment.new, url: post_comments_path(post), method: :post do |f| %>
       <%= f.input :text, label: "Comment", placeholder: "Add a Comment" %>
