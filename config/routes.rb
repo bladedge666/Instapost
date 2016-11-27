@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'about' => "static#about"
   root 'posts#index'
   resources :posts do
@@ -7,5 +8,4 @@ Rails.application.routes.draw do
 
   resources :users, only: :show # for users_controller 
 
-  devise_for :users
 end
