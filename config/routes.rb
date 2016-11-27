@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root 'posts#index'
   resources :posts do
     resources :comments
-  end   
+  end
+
+  resources :users, only: :show # for users_controller 
+
   devise_for :users
 end
