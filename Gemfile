@@ -12,6 +12,10 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
 gem 'carrierwave'
 gem 'simple_form'
+gem 'font-awesome-sass', '~> 4.7.0'
+gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
+gem 'acts_as_votable', '~> 0.10.0'
+
 
 
 # Use Puma as the app server
