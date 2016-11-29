@@ -3,7 +3,8 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @posts = Post.order("created_at DESC")
+    @posts = Post.all.order('created_at DESC').includes(:user, comments: :user)
+
   end
 
   def show

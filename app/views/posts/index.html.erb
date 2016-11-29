@@ -6,11 +6,11 @@
     <div class="post-header">
       <!-- <div class="prof-pic-container"> -->
         <a href="<%= user_path(post.user) %>" class="prof-pic-container">
-          <%= image_tag post.user.photo, class: 'prof-pic-small img-circle' %>
+          <%= image_tag post.user_photo, class: 'prof-pic-small img-circle' %>
         </a>
       <!-- </div> -->
       <div class="prof-name-container">
-        <%= link_to post.user.name, user_path(post.user_id), class: "uname" %>
+        <%= link_to post.user_name, user_path(post.user_id), class: "uname" %>
       </div>
       <a class="timestamp pull-right" href="#"><%= distance_of_time_in_words(DateTime.now, post.created_at) %></a> 
     </div>
@@ -19,7 +19,7 @@
     
     <div class="post-body">
       
-      <%= link_to post.user.name, user_path(post.user_id), class: "uname" %> <%= post.description %>
+      <%= link_to post.user_name, user_path(post.user_id), class: "uname" %> <%= post.description %>
 
     </div>
     <!-- <hr> -->
@@ -27,7 +27,7 @@
 
       <% post.comments.each do |comment| %>
         
-        <p><%= link_to comment.user.name, user_path(comment.user_id), class: "uname" %> <%= comment.text %></ p>
+        <p><%= link_to comment.user_name, user_path(comment.user_id), class: "uname" %> <%= comment.text %></ p>
 
       <% end %>
 
