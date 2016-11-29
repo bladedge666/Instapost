@@ -44,7 +44,6 @@ class PostsController < ApplicationController
     redirect_to root_path
   end
 
-
   private
 
   def if_not_owner_redirect_to_root
